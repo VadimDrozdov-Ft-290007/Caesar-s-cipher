@@ -49,4 +49,4 @@ while True:
             key *= -1
             code_message = code(eng_alphabet, message, key)
 
-    print('Результат: ' + code_message)
+    print('\nРезультат: ' + code_message + '\n')
