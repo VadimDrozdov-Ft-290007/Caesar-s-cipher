@@ -19,21 +19,27 @@ eng_alphabet = string.ascii_lowercase
 # Создание консольного интерфейса с помощью бесконечного цикла
 while True:
     print('Выберите действие:', 'Введите 1, если хотите зашифровать сообщение', 'Введите 2, если хотите расшифровать сообщение', 'Введите 3, если хотите выйти из программы', sep = '\n')
-    change = int(input('Ваш выбор: '))
+    change = input('Ваш выбор: ')
 
-    if change == 3: break
-    elif change != 1 and change !=2:
-        print('Вы ввели неверную цифру. Попробуйте ещё раз')
+    if change == '3': break
+    elif change != '1' and change !='2':
+        print('Вы ввели неверный символ. Попробуйте ещё раз')
         continue
+    change = int(change)
 
     print('\nКакой алфавит используется в сообщении?', 'Введите 1, если русский', 'Введите 2, если латинский', sep = '\n')
-    language = int(input('Ваш выбор: '))
-    if language != 1 and language !=2:
-        print('Вы ввели неверную цифру. Попробуйте ещё раз')
+    language = input('Ваш выбор: ')
+    if language != '1' and language !='2':
+        print('Вы ввели неверный символ. Попробуйте ещё раз')
         continue
+    language = int(language)
 
     message = input('Введите строку: ').lower()
-    key = int(input('Введите ключ (сдвиг алфавита): '))
+    key = input('Введите ключ (сдвиг алфавита): ')
+    if key.isdigit() != 1:
+        print('Вы ввели неверный символ. Попробуйте ещё раз')
+        continue
+    key = int(key)
 
     if language == 1:
         if change == 1:
