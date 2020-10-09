@@ -21,6 +21,7 @@ while True:
     print('Выберите действие:', 'Введите 1, если хотите зашифровать сообщение', 'Введите 2, если хотите расшифровать сообщение', 'Введите 3, если хотите выйти из программы', sep = '\n')
     change = input('Ваш выбор: ')
 
+    # Проверка на ввод правильного числа
     if change == '3': break
     elif change != '1' and change !='2':
         print('Вы ввели неверный символ. Попробуйте ещё раз')
@@ -29,6 +30,8 @@ while True:
 
     print('\nКакой алфавит используется в сообщении?', 'Введите 1, если русский', 'Введите 2, если латинский', sep = '\n')
     language = input('Ваш выбор: ')
+
+    # Проверка на ввод правильного числа
     if language != '1' and language !='2':
         print('Вы ввели неверный символ. Попробуйте ещё раз')
         continue
@@ -36,11 +39,14 @@ while True:
 
     message = input('Введите строку: ').lower()
     key = input('Введите ключ (сдвиг алфавита): ')
+
+    # Проверка на ввод числа
     if key.isdigit() != 1:
         print('Вы ввели неверный символ. Попробуйте ещё раз')
         continue
     key = int(key)
 
+    # Работа с русским алфавитом
     if language == 1:
         if change == 1:
             code_message = code(rus_alphabet, message, key)
@@ -48,6 +54,7 @@ while True:
             key *= -1
             code_message = code(rus_alphabet, message, key)
 
+    # Работа с латинским алфавитом
     elif language == 2:
         if change == 1:
             code_message = code(eng_alphabet, message, key)
@@ -55,4 +62,5 @@ while True:
             key *= -1
             code_message = code(eng_alphabet, message, key)
 
+    # Вывод результата
     print('\nРезультат: ' + code_message + '\n')
